@@ -1,13 +1,11 @@
 const assertEqual = require('./assertEqual');
 
 const findKeyByValue = function(obj, value) {
-  let genre;
   for (let key in obj) {
     if (obj[key] === value) {
-      genre = key;
+      return key;
     }
   }
-  return genre;
 };
 
 module.exports = findKeyByValue;
