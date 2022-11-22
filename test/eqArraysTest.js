@@ -1,8 +1,17 @@
-const assertEqual = require('../assertEqual.js');
+const assert = require('chai').assert;
 const eqArrays = require('../eqArrays.js');
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => true
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // => false
-
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // => true
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false); // => false
+describe('#eqArrays', () => {
+  it('returns true for eqArrays([1, 2, 3], [1, 2, 3])', () => {
+    assert.strictEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+  });
+  it('returns false for eqArrays([1, 2, 3], [3, 2, 1])', () => {
+    assert.strictEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
+  });
+  it('returns true for eqArrays(["1", "2", "3"], ["1", "2", "3"])', () => {
+    assert.strictEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
+  });
+  it('returns false for eqArrays(["1", "2", "3"], ["1", "2", 3])', () => {
+    assert.strictEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
+  });
+});
